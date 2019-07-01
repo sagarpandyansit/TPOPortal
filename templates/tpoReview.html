@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Bootstrap classes for styling -->
+    <link rel="stylesheet" href="{% static 'student/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'student/css/mystyle.css' %}">
+    <script src="{% static 'student/js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'student/js/bootstrap.min.js' %}"></script>
+
+    <title>Review</title>
+</head>
+<body>
+
+    <!-- Code for navigation bar -->
+    <div style="height: 10px; background: #27AAE1"></div>
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="" class="container-brand"><img src="" alt=""></a>
+            </div>
+
+        <div class="navbar-collapse collapse" id="collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url 'tpoDashboard' %}"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Welcome {{ name }}</a></li>
+                <li><a href="{% url 'logoutTPO' %}"><span class="glyphicon glyphicon-log-out"></span>&nbsp;&nbsp;Logout</a></li>
+            </ul>
+        </div>
+        </div>
+    </nav>
+    <!-- Code for navigation bar -->
+
+    <!-- check whether TPO is logged in or not -->
+    {% if set %}
+        <div class="col-sm-offset-4 col-sm-4">
+            <br><br><br><br>
+            <h1>Review Application Form</h1>
+
+            <!-- prefilled form for Review with Approve and reject button -->
+            <form action="" method="post">
+                {% csrf_token %}
+                <fieldset>
+                    <div class="form-group">
+                        <label for="name"><span class="FieldInfo">Name:</span></label>
+                        <input class="form-control" type="text" id="name" name="name" value="{{ student.fullname }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="course"><span class="FieldInfo">Course:</span></label>
+        {#                <i class="glyphicon-envelope"></i>#}
+                        <input class="form-control" type="text" id="course" name="course" value="{{ student.course }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="semester"><span class="FieldInfo">Semester:</span></label>
+                        <input class="form-control" type="text" id="semester" name="semester" value="{{ student.semester }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="department"><span class="FieldInfo">Department:</span></label>
+                        <input class="form-control" type="text" id="department" name="department" value="{{ student.department }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="email"><span class="FieldInfo">E-mail:</span></label>
+                        <input class="form-control" type="text" id="email" name="email" value="{{ application.email }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="mobno"><span class="FieldInfo">Mob No:</span></label>
+                        <input class="form-control" type="text" id="mobno" name="email" value="{{ student.mobno }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="companyname"><span class="FieldInfo">Company Name:</span></label>
+                        <input class="form-control" type="text" id="companyname" name="companyname" value="{{ application.companyname }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="position"><span class="FieldInfo">Position for which you want to apply:</span></label>
+                        <input class="form-control" type="text" id="position" name="position" value="{{ application.position }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reason">Why you want to join company:</label>
+                        <textarea class="form-control" id="reason" rows="5" cols="10">{{ application.reason }}</textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="resume"><span class="FieldInfo">Resume:</span></label>
+                        <a href="{% static 'student/resumes/' %}{{ application.resume }}">{{ application.resume }}</a>
+                    </div>
+
+                    <!-- Code for approve and Reject button -->
+                    <div class="col-sm-5">
+                    <input class="form-control btn btn-success" type="submit" name="approve" value="Approve">
+                    </div>
+
+                    <div class="col-sm-5">
+                    <input class="form-control btn btn-danger" type="submit" name="reject" value="Reject">
+                    </div>
+                    <br><br>
+                    <!-- Code for approve and Reject button END -->
+
+                </fieldset>
+            </form>
+            <!-- form END -->
+
+        </div>
+
+    <!-- if TPO is not logged in, this part will be executed -->
+    {% else %}
+        <div class="col-sm-offset-4 col-sm-4">
+            <a class="form-control btn btn-primary btn-block" href="{% url 'login' %}">Please Login!</a>
+        </div>
+    {% endif %}
+</body>
+</html>

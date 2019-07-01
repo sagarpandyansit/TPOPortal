@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<!-- load static files from STATIC_URL --->
+{% load staticfiles %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Bootstrap classes for styling -->
+    <link rel="stylesheet" href="{% static 'student/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'student/css/mystyle.css' %}">
+
+    <title>Login</title>
+</head>
+<body>
+
+    <!-- Code for navigation bar -->
+        <div style="height: 10px; background: #27AAE1"></div>
+        <nav class="navbar navbar-inverse" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="" class="container-brand"><img src="" alt=""></a>
+            </div>
+        </div>
+    </nav>
+    <!-- Code for navigation bar END -->
+
+    <!-- code for main area -->
+        <div class="col-sm-offset-4 col-sm-4">
+            <br><br><br><br>
+            <h2 style="color: #332eff">Login Here</h2><br>
+
+        <!-- code for form for login -->
+            <form action="" method="post">
+                {% csrf_token %}
+                <fieldset>
+                    <div class="form-group">
+                        <label for="email"><span class="FieldInfo">E-mail:</span></label>{{ form.email }}
+{#                        <input class="form-control" type="text" id="email" name="email">#}
+                    </div>
+                    <div class="form-group">
+                        <label for="password"><span class="FieldInfo">Password:</span></label>{{ form.password }}
+{#                        <input class="form-control" type="password" id="password" name="password">#}
+                    </div>
+
+                <input class="form-control btn btn-primary btn-block" type="submit" value="Submit">
+                </fieldset>
+            </form>
+        <!-- code for form for login END -->
+
+     <!-- code for main area END -->
+        </div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Bootstrap classes for styling -->
+    <link rel="stylesheet" href="{% static 'student/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'student/css/mystyle.css' %}">
+    <script src="{% static 'student/js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'student/js/bootstrap.min.js' %}"></script>
+
+    <title>Dashboard</title>
+</head>
+<body>
+
+    <!-- Code for Navigation bar -->
+    <div style="height: 10px; background: #27AAE1"></div>
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="" class="container-brand"><img src="" alt=""></a>
+            </div>
+
+        <div class="navbar-collapse collapse" id="collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url 'stdDashboard' %}"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Welcome {{ fullname }}</a></li>
+                <li><a href="{% url 'logoutStd' %}"><span class="glyphicon glyphicon-log-out"></span>&nbsp;&nbsp;Logout</a></li>
+            </ul>
+        </div>
+        </div>
+    </nav>
+    <!-- Navigation bar code END -->
+
+    <!--Check whether user is logged in or not -->
+    {% if fullname %}
+
+    <!-- link for job application -->
+    <div class="col-sm-offset-4 col-sm-4">
+        <a class="form-control btn btn-primary btn-block" href="{% url 'stdApplication' %}">Fill the job application</a>
+        <br>
+    </div>
+    <!-- link for job application END -->
+
+    <!-- Table that show all applications of student -->
+    <div class="">
+        <table class="table table-striped table-hover">
+
+            <tr>
+                <th>Company Name</th>
+                <th>Position</th>
+                <th>Applied on</th>
+                <th>Resume</th>
+                <th>Status</th>
+            </tr>
+
+
+            {% for application in obj %}
+
+            <tr>
+                <td>{{ application.companyname }}</td>
+                <td>{{ application.position }}</td>
+                <td>{{ application.datetimestamp }}</td>
+
+                <!-- link for student resume -->
+                <td><a href='{% static "student/resumes/" %}{{ application.resume}}'>{{ application.resume }}</a></td>
+
+                <!-- code to show student application status -->
+                {% if application.status == 1 %}
+                    <td>Under Review</td>
+                {% elif application.status == 0 %}
+                    <td>Rejected</td>
+                {% else %}
+                    <td>Accepted</td>
+                {% endif %}
+                <!-- code to show student application status END -->
+            </tr>
+
+            {% endfor %}
+
+        </table>
+    </div>
+    <!-- Table that show all applications of student END -->
+
+    <!-- If user is not logged in, This part will be executed -->
+    {% else %}
+    <div class="col-sm-offset-4 col-sm-4">
+        <a class="form-control btn btn-primary btn-block" href="{% url 'login' %}">Please Login!</a>
+    </div>
+        {% endif %}
+    <!-- End of if section -->
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Bootstrap classes for styling -->
+    <link rel="stylesheet" href="{% static 'student/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'student/css/mystyle.css' %}">
+    <script src="{% static 'student/js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'student/js/bootstrap.min.js' %}"></script>
+
+    <title>Dashboard</title>
+
+    <!-- JavaScript function to make whole row clickable of table -->
+    <script>
+        jQuery(document).ready(function($) {
+            $(".clickable-row").click(function() {
+                window.location = $(this).data("href");
+            });
+        });
+    </script>
+    <!-- JavaScript END -->
+
+</head>
+<body>
+
+    <!-- Code for Navigation bar -->
+    <div style="height: 10px; background: #27AAE1"></div>
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="" class="container-brand"><img src="" alt=""></a>
+            </div>
+
+        <div class="navbar-collapse collapse" id="collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url 'tpoDashboard' %}"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Welcome {{ name }}</a></li>
+                <li><a href="{% url 'logoutTPO' %}"><span class="glyphicon glyphicon-log-out"></span>&nbsp;&nbsp;Logout</a></li>
+            </ul>
+        </div>
+        </div>
+    </nav>
+    <!-- Code for Navigation bar END -->
+
+    <!-- check whether stuent is logged in or not -->
+    {% if stdobj %}
+
+    <!-- Table show all student's application for job -->
+    <div class="col-sm-12">
+        <table class="table table-striped table-hover custom">
+            <tr>
+                <th>Student Name</th>
+                <th>Department</th>
+                <th>Company name</th>
+                <th>Position</th>
+                <th>Applied on</th>
+                <th>Resume</th>
+                <th>Status</th>
+            </tr>
+            {% for student in stdobj %}
+                {% for application in obj %}
+                    {% if student.email == application.email %}
+            <tr class='clickable-row' data-href='{% url 'tpoReview' pk=application.pk %}'>
+                <td>{{ student.fullname }}</td>
+                <td>{{ student.department }}</td>
+                <td>{{ application.companyname }}</td>
+                <td>{{ application.position }}</td>
+                <td>{{ application.datetimestamp }}</td>
+                <td>{{ application.resume }}</td>
+
+                {% if application.status == 1 %}
+                    <td><a href="{% url 'tpoReview' pk=application.pk %}" class="btn btn-primary">Under Review</a></td>
+                {% elif application.status == 2 %}
+                    <td><a href="{% url 'tpoReview' pk=application.pk %}" class="btn btn-success">Accepted</a></td>
+                {% else %}
+                    <td><a href="{% url 'tpoReview' pk=application.pk %}" class="btn btn-danger">Rejected</a></td>
+                {% endif %}
+            </tr>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+
+        </table>
+    </div>
+    <!-- Table show all student's application for job -->
+
+    <!-- if stuent is not logged in -->
+    {% else %}
+    <div class="col-sm-offset-4 col-sm-4">
+        <a class="form-control btn btn-primary btn-block" href="{% url 'login' %}">Please Login!</a>
+        <br>
+    </div>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Bootstrap classes for styling -->
+    <link rel="stylesheet" href="{% static 'student/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'student/css/mystyle.css' %}">
+    <script src="{% static 'student/js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'student/js/bootstrap.min.js' %}"></script>
+
+    <title>Application Form</title>
+
+    <!-- JavaScript function to check whether resume is less than 1 MB or not -->
+    <script type='text/javascript'>
+        function FileSizeValidation() {
+            var input, file;
+
+            if (!window.FileReader) {
+                alert("The file API isn't supported on this browser yet.");
+                return;
+            }
+
+            input = document.getElementById('resume');
+            file = input.files[0];
+            if(file.size > 1048576)
+                alert("filesize must be less than 1 MB.");
+                {#input.value = '';#}
+            }
+    </script>
+    <!-- JavaScript END -->
+
+</head>
+<body>
+
+    <!-- Code fro Navigation bar -->
+    <div style="height: 10px; background: #27AAE1"></div>
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a href="" class="container-brand"><img src="" alt=""></a>
+            </div>
+
+        <div class="collapse navbar-collapse" id="collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url 'stdDashboard' %}"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Welcome {{ fullname }}</a></li>
+                <li><a href="{% url 'logoutStd' %}"><span class="glyphicon glyphicon-log-out"></span>&nbsp;&nbsp;Logout</a></li>
+            </ul>
+        </div>
+        </div>
+    </nav>
+    <!-- Code fro Navigation bar -->
+
+    <!-- If condition to check whether user is logged in or not -->
+    {% if 'fullname' in request.session %}
+
+        <!-- Main area -->
+        <div class="col-sm-offset-4 col-sm-4">
+            <br><br><br><br>
+
+            <!-- Application form for job -->
+            <h1>Fill Your Detail here</h1>
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <fieldset>
+
+                    <div class="form-group">
+                        <label for="name"><span class="FieldInfo">Name:</span></label>
+                        <input class="form-control" type="text" id="name" name="name" value={{ fullname }} disabled>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="course"><span class="FieldInfo">Course:</span></label>
+                        <input class="form-control" type="text" id="course" name="course" value={{ course }} disabled>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="semester"><span class="FieldInfo">Semester:</span></label>
+                        <input class="form-control" type="text" id="semester" name="semester" value={{ semester }} disabled>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="department"><span class="FieldInfo">Department:</span></label>
+                        <input class="form-control" type="text" id="department" name="department" value={{ department }} disabled>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email"><span class="FieldInfo">E-mail:</span></label>
+                        <input class="form-control" type="text" id="email" name="email" value={{ email }} disabled>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mobno"><span class="FieldInfo">Mob No:</span></label>
+                        <input class="form-control" type="text" id="mobno" name="mobno" value={{ mobno }} disabled>
+                    </div>
+
+                    <select name="companyname" id="companyname" class="form-group col-sm-12">
+                        <option value="Select" class="form-control">Select</option>
+                        <option value="Google" class="form-control">Google</option>
+                        <option value="Facebook" class="form-control">Facebook</option>
+                        <option value="Microsoft" class="form-control">Microsoft</option>
+                        <option value="Amazon" class="form-control">Amazon</option>
+                        <option value="Morgan Stanley" class="form-control">Morgan stanley</option>
+                    </select>
+
+                    <div class="form-group">
+                        <label for="position"><span class="FieldInfo">Position for which you want to apply:</span></label>
+                        <input class="form-control" type="text" id="position" name="position">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reason">Why you want to join company:</label>
+                        <textarea class="form-control" id="reason" rows="5" cols="10" name="reason"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="resume"><span class="FieldInfo">Resume:</span></label>
+                        <input class="form-control" type="file" accept="application/pdf" id="resume" name="resume" onchange='FileSizeValidation();'>
+                    </div>
+
+                    <input class="form-control btn btn-primary btn-block" type="submit" value="Submit">
+                    <br><br>
+                </fieldset>
+            </form>
+            <!-- Application form for job END -->
+
+        </div>
+        <!-- Main area END -->
+
+    <!-- Main area start if user is not logged in -->
+    {% else %}
+            <div class="col-sm-offset-4 col-sm-4">
+        <a class="form-control btn btn-primary btn-block" href="{% url 'login' %}">Please Login!</a>
+        <br>
+    </div>
+    {% endif %}
+    <!-- Main are END -->
+
+</body>
+</html>
