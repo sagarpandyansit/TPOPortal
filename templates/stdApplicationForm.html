@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{% load static %}
+{% load staticfiles %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -17,17 +17,22 @@
         function FileSizeValidation() {
             var input, file;
 
+            // Check whether browser is supported for this action or not
             if (!window.FileReader) {
                 alert("The file API isn't supported on this browser yet.");
                 return;
             }
 
+            // Get resume by ID.
             input = document.getElementById('resume');
             file = input.files[0];
-            if(file.size > 1048576)
+
+            // Check whether file size is more than 1 MB or not
+            if (file.size > 1048576) {
                 alert("filesize must be less than 1 MB.");
-                {#input.value = '';#}
+                input.value = '';
             }
+        }
     </script>
     <!-- JavaScript END -->
 
@@ -39,6 +44,8 @@
     <nav class="navbar navbar-inverse" role="navigation">
         <div class="container">
             <div class="navbar-header">
+
+                <!-- bootstrap styling for mobile view -->
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse">
                     <span class="sr-only">Toggle Navigation</span>
                     <span class="icon-bar"></span>
@@ -57,7 +64,7 @@
         </div>
         </div>
     </nav>
-    <!-- Code fro Navigation bar -->
+    <!-- Code fro Navigation bar END -->
 
     <!-- If condition to check whether user is logged in or not -->
     {% if 'fullname' in request.session %}
@@ -72,6 +79,7 @@
                 {% csrf_token %}
                 <fieldset>
 
+                    <!-- divisions for form fields -->
                     <div class="form-group">
                         <label for="name"><span class="FieldInfo">Name:</span></label>
                         <input class="form-control" type="text" id="name" name="name" value={{ fullname }} disabled>
@@ -102,6 +110,7 @@
                         <input class="form-control" type="text" id="mobno" name="mobno" value={{ mobno }} disabled>
                     </div>
 
+                    <!-- Drop-down menu for company selection -->
                     <select name="companyname" id="companyname" class="form-group col-sm-12">
                         <option value="Select" class="form-control">Select</option>
                         <option value="Google" class="form-control">Google</option>

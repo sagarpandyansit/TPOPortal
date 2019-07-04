@@ -19,6 +19,7 @@
     <nav class="navbar navbar-inverse" role="navigation">
         <div class="container">
 
+            <!-- Bootstrap class for mobile compatible view -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse">
                     <span class="sr-only">Toggle Navigation</span>
@@ -37,7 +38,7 @@
         </div>
         </div>
     </nav>
-    <!-- Code for navigation bar -->
+    <!-- Code for navigation bar END-->
 
     <!-- check whether TPO is logged in or not -->
     {% if set %}
@@ -49,6 +50,8 @@
             <form action="" method="post">
                 {% csrf_token %}
                 <fieldset>
+
+                    <!-- all the pre-filled fields -->
                     <div class="form-group">
                         <label for="name"><span class="FieldInfo">Name:</span></label>
                         <input class="form-control" type="text" id="name" name="name" value="{{ student.fullname }}">

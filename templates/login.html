@@ -29,19 +29,22 @@
     <!-- code for main area -->
         <div class="col-sm-offset-4 col-sm-4">
             <br><br><br><br>
+
             <h2 style="color: #332eff">Login Here</h2><br>
 
         <!-- code for form for login -->
             <form action="" method="post">
                 {% csrf_token %}
                 <fieldset>
+
+                    <!-- division for email field -->
                     <div class="form-group">
                         <label for="email"><span class="FieldInfo">E-mail:</span></label>{{ form.email }}
-{#                        <input class="form-control" type="text" id="email" name="email">#}
                     </div>
+
+                    <!-- division for password field -->
                     <div class="form-group">
                         <label for="password"><span class="FieldInfo">Password:</span></label>{{ form.password }}
-{#                        <input class="form-control" type="password" id="password" name="password">#}
                     </div>
 
                 <input class="form-control btn btn-primary btn-block" type="submit" value="Submit">
