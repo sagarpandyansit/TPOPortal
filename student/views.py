@@ -167,13 +167,8 @@ def logoutStudent(request):
     # Session.objects.all().delete()
 
     ## delete all session variable to destroy session.
-    del request.session['fullname']
-    del request.session['course']
-    del request.session['department']
-    del request.session['semester']
-    if 'email' in request.session.keys():
-        del request.session['email']
-    del request.session['mobno']
+    for keys in list(request.session.keys()):
+        del request.session[keys]
 
     ## Redirect to the Login page.
     return redirect('login')
@@ -278,9 +273,8 @@ def getstudent(obj, appemail):
 def logoutTPO(request):
 
     ## Clear session varibles
-    del request.session['name']
-    if 'email' in request.session.keys():
-        del request.session['email']
+    for keys in list(request.session.keys()):
+        del request.session[keys]
 
     ## Redirect to the login page.
     return redirect('login')
