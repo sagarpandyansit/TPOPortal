@@ -1,0 +1,53 @@
+1) create virtualenv and activate it.
+
+2) If you want to install any pip-packages, install it with 'pip install <package_name>'
+
+3) create project 'django-admin.py startproject myproject'
+cd myproject
+
+4) create app 'python ../manage.py startapp appname'
+cd ..
+python manage.py migrate
+
+5) edit files
+myproject/settings.py
+myproject/urls.py
+myproject/appname/views.py
+myproject/appname/models.py
+myproject/appname/admin.py
+
+6) create templates and static files for HTML, CSS and JS content.
+python manage.py makemigrations
+python manage.py migrate
+
+7) To run server
+python manage.py runserver
+
+
+-->These are the errors that I faced during this project development.
+
+Errror : I declared email as as foreign key in Student application model. It complicate the insertion in Application table.
+Solution : I declared CharField instead of Foreign key. It ease the table and also provide all the functionality of the foreign key.
+
+First I created 2 login forms for both(Student and TPO) then I created single login page and redirect acccroding the login credentials.
+
+I used to pass the primary key from one page to another for user's data then I used session for that management. and that made all things are much more easier.
+
+Session help me to check whether usr is loogged in or not.
+
+I can't store resume file statically in any folder. I search on Google and found code snippet on stackoverflow and done. It works fine.
+
+Error : Fistly, I declare an email field as a primary key but it cause trouble a lot. Now, we can't delete primary key and it leads the whole project crash.
+Solution : I delete migrated file manually from migrations folder in app. change in model and run again migrate and makemigrations to migrate the database.
+
+
+--> Flow of project development
+
+Created student app and made changes wherever( settings, urls) rrequired.
+made templates for all pages (login, dashboard for both, application form and review form).
+link it to the views.
+Created models, register it and migrate to the database.
+created login form with forms.py and make view accordingly to test that approach too.
+I made a login view and redirect according to the login credentials and set session data accordingly.
+then I made both dashboard view and pass context for data.
+Done same with application and review page.
