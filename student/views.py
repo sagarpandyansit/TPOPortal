@@ -26,7 +26,6 @@ def login(request):
                 if form.cleaned_data['email'] == stud.email and form.cleaned_data['password'] == stud.password:
 
                     ## Set session variables for student
-                    request.session['fullname'] = stud.fullname
                     request.session['course'] = stud.course
                     request.session['semester'] = stud.semester
                     request.session['department'] = stud.department
@@ -48,7 +47,6 @@ def login(request):
 
                     ## set session variable for TPO.
                     request.session['name'] = tpo.name
-                    request.session['email'] = tpo.email
 
                     ## Redirect TPO to the tpoDashboard.
                     return redirect('tpoDashboard')
@@ -78,7 +76,6 @@ def stdDashboard(request):
         obj = StudentApplicationForm.objects.filter(email=request.session['email'])
 
         dict = {
-            'obj': obj,
             'fullname': fullname,
         }
 
@@ -132,7 +129,6 @@ def stdApplicationForm(request):
         if 'fullname' in request.session:
 
             ## pass the session variable for Student Application page.
-            fullname = request.session['fullname']
             course = request.session['course']
             department = request.session['department']
             semester = request.session['semester']
