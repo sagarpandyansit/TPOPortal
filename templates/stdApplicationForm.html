@@ -104,19 +104,23 @@
                         <label for="email"><span class="FieldInfo">E-mail:</span></label>
                         <input class="form-control" type="text" id="email" name="email" value={{ email }} disabled>
                     </div>
-
-                    <!-- Drop-down menu for company selection -->
-
+		
+		    <!-- Field for the position for which you are applying -->
                     <div class="form-group">
                         <label for="position"><span class="FieldInfo">Position for which you want to apply:</span></label>
                         <input class="form-control" type="text" id="position" name="position">
                     </div>
 
+		    <!-- Optional Field -->
+		    <!-- Why you want to join the company -->
+		    <!-- reason for that -->
                     <div class="form-group">
                         <label for="reason">Why you want to join company:</label>
                         <textarea class="form-control" id="reason" rows="5" cols="10" name="reason"></textarea>
                     </div>
-
+		
+		    <!-- Resume Section -->
+		    <!-- upload pdf file -->
                     <div class="form-group">
                         <label for="resume"><span class="FieldInfo">Resume:</span></label>
                         <input class="form-control" type="file" accept="application/pdf" id="resume" name="resume" onchange='FileSizeValidation();'>
