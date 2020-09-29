@@ -1,6 +1,3 @@
-from django.urls import path
-
-## All views import
 from .views import login, stdDashboard, stdApplicationForm, tpoDashboard, tpoReview, logoutStudent, logoutTPO
 
 ## these are for staic file handling.
@@ -27,7 +24,7 @@ urlpatterns = [
 ]
 
 ## urls for handling the static files like resumes.
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+## urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 # if settings.DEBUG:
 #     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

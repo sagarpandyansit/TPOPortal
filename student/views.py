@@ -22,7 +22,7 @@ def login(request):
             student = StudentLogin.objects.all()
 
             ## Check whether student is registered or not
-            for stud in student:
+            # for stud in student:
                 if form.cleaned_data['email'] == stud.email and form.cleaned_data['password'] == stud.password:
 
                     ## Set session variables for student
@@ -61,7 +61,7 @@ def login(request):
 
     else:
         form = LoginForm()
-    return render(request, 'login.html', {'form': form})
+    # return render(request, 'login.html', {'form': form})
 
 ##########  View for handle login for both TPO and Student END ##########
 
@@ -262,10 +262,10 @@ def tpoReview(request, pk):
 ##########  View for TPO Review END    ##########
 
 ## function to get desired student info from table
-def getstudent(obj, appemail):
-    for iterator in obj:
-        if (appemail == iterator.email):
-            return iterator
+# def getstudent(obj, appemail):
+#     for iterator in obj:
+#         if (appemail == iterator.email):
+#             return iterator
 
 
 ##########  View for TPO logout    ##########
