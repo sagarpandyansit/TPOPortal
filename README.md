@@ -3,9 +3,7 @@ Complete Working model of traning and placement portal for college.
 
 CONTENTS OF THIS FILE
 ---------------------
-
- * Introduction
- * Installation
+ * [**Introduction**](#Introduction)
  * Starting the Bot
   * Starting the Bot with Drush
   * Starting the Bot with bot_start.php
@@ -14,6 +12,7 @@ CONTENTS OF THIS FILE
  * Other IRC Hooks
  * Design Decisions
 
+<a name="Introduction"></a>
 ## Introduction
 
 * Developed a fully-functional Training and Placement Portal having an Training and Placment Officer and a student section.
