@@ -4,7 +4,7 @@ Complete Working model of traning and placement portal for college.
 CONTENTS OF THIS FILE
 ---------------------
  * [**Introduction**](#Introduction)
- * Starting the Bot
+ * [**Working Model**](#WorkingModel)
   * Starting the Bot with Drush
   * Starting the Bot with bot_start.php
  * Using the Bot
@@ -20,6 +20,19 @@ CONTENTS OF THIS FILE
 * TPO can add new openings, and moderate application of students.
 * Students can fill the application and see the status of their applications whether it is Rejected, Accepted or Under Review.
 * **Technologies used**: Django, Bootstrap, JavaScript.
+
+<a name="WorkingModel"></a>
+## Working Model
+
+ **Selected Snapshots of Portal **
+ * Student Dashboard
+ ![Image of Student Dashboard]()
+ * TPO Dashboard
+ ![Image of TPO Dashboard](https://github.com/sagarpandyansit/TPOPortal/blob/master/Screenshots/TPODashboar.png)
+ * Student Application Form
+ ![Image of Student Application Form]()
+ * Moderate the application by TPO
+![Image of Action by TPO]()
 
 ## Process of deployment on server:
 
