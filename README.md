@@ -22,15 +22,16 @@ CONTENTS OF THIS FILE
 
  **Selected Snapshots of Portal:**
  
+ * Login Page: <br>
  ![Image of Student Dashboard](https://github.com/sagarpandyansit/TPOPortal/blob/master/Screenshots/LoginPageforboth.png)
  
- * Student Dashboard
+ * Student Dashboard: <br>
  ![Image of Student Dashboard](https://github.com/sagarpandyansit/TPOPortal/blob/master/Screenshots/StudentDashboard.png)
  
- * TPO Dashboard
+ * TPO Dashboard: <br>
  ![Image of TPO Dashboard](https://github.com/sagarpandyansit/TPOPortal/blob/master/Screenshots/TPODashboard.png)
  
- * Student Application Form and Moderate by TPO
+ * Student Application Form and Moderate by TPO: <br>
  ![Image of Student Application Form](https://github.com/sagarpandyansit/TPOPortal/blob/master/Screenshots/20200930_163956.gif)
 
 <a name="deploy"></a>
