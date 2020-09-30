@@ -1,6 +1,27 @@
 # TPOPortal
 Complete Working model of traning and placement portal for college.
 
+CONTENTS OF THIS FILE
+---------------------
+
+ * Introduction
+ * Installation
+ * Starting the Bot
+  * Starting the Bot with Drush
+  * Starting the Bot with bot_start.php
+ * Using the Bot
+ * IRC Message Hooks
+ * Other IRC Hooks
+ * Design Decisions
+
+## Introduction
+
+* Developed a fully-functional Training and Placement Portal having an Training and Placment Officer and a student section.
+* TPO controls all the activities in the portal.
+* TPO can add new openings, and moderate application of students.
+* Students can fill the application and see the status of their applications whether it is Rejected, Accepted or Under Review.
+* **Technologies used**: Django, Bootstrap, JavaScript.
+
 ## Process of deployment on server:
 
 1) Clone this repository with 'git clone <remote_url>'.

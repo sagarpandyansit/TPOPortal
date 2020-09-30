@@ -18,7 +18,6 @@ class LoginForm(forms.Form):
                                 }))
 
     def clean(self, *args, **kwargs):
-        cleaned_data = super().clean()
         email = cleaned_data.get('email')
         password = cleaned_data.get('password')
         if not email and not password:
@@ -29,7 +28,6 @@ class RegistrationForm(forms.Form):
     course = forms.CharField(max_length=256)
     semester = forms.IntegerField()
     department = forms.CharField(max_length=256)
-    email = forms.CharField(max_length=256)
     password = forms.CharField(widget=forms.PasswordInput)
     mobno = forms.CharField(max_length=10)
 
