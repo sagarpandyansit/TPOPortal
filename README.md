@@ -31,7 +31,7 @@ CONTENTS OF THIS FILE
  ![Image of TPO Dashboard](https://github.com/sagarpandyansit/TPOPortal/blob/master/Screenshots/TPODashboard.png)
  
  * Student Application Form and Moderate by TPO
- ![Image of Student Application Form](https://github.com/sagarpandyansit/TPOPortal/blob/master/Screenshots/applicationModerate.jpg)
+ ![Image of Student Application Form](https://github.com/sagarpandyansit/TPOPortal/blob/master/Screenshots/20200930_163956.gif)
 
 <a name="deploy"></a>
 ## Deploy over the server:
