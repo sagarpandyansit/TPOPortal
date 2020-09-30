@@ -24,22 +24,18 @@ CONTENTS OF THIS FILE
 <a name="WorkingModel"></a>
 ## Working Model
 
- **Selected Snapshots of Portal**
+ **Selected Snapshots of Portal:**
  
- * Login Page
-   ![Image of Login Page](https://github.com/sagarpandyansit/TPOPortal/blob/master/Screenshots/LoginPageforboth.png)
-   
+ ![Image of Student Dashboard](https://github.com/sagarpandyansit/TPOPortal/blob/master/Screenshots/LoginPageforboth.png)
+ 
  * Student Dashboard
  ![Image of Student Dashboard](https://github.com/sagarpandyansit/TPOPortal/blob/master/Screenshots/StudentDashboard.png)
  
  * TPO Dashboard
  ![Image of TPO Dashboard](https://github.com/sagarpandyansit/TPOPortal/blob/master/Screenshots/TPODashboard.png)
  
- * Student Application Form
- ![Image of Student Application Form](https://github.com/sagarpandyansit/TPOPortal/blob/master/Screenshots/StudentFormFill.png)
- 
- * Moderate the application by TPO
-![Image of Action by TPO](https://github.com/sagarpandyansit/TPOPortal/blob/master/Screenshots/ApproveReject.png)
+ * Student Application Form and Moderate by TPO
+ ![Image of Student Application Form](https://github.com/sagarpandyansit/TPOPortal/blob/master/Screenshots/applicationModerate.jpg)
 
 ## Process of deployment on server:
 
