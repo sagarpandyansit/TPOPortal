@@ -5,12 +5,8 @@ CONTENTS OF THIS FILE
 ---------------------
  * [**Introduction**](#Introduction)
  * [**Working Model**](#WorkingModel)
-  * Starting the Bot with Drush
-  * Starting the Bot with bot_start.php
- * Using the Bot
- * IRC Message Hooks
- * Other IRC Hooks
- * Design Decisions
+ * [**Deploy over the server**](#deploy)
+ * [**Installation on the local machine**](#local)
 
 <a name="Introduction"></a>
 ## Introduction
@@ -37,7 +33,8 @@ CONTENTS OF THIS FILE
  * Student Application Form and Moderate by TPO
  ![Image of Student Application Form](https://github.com/sagarpandyansit/TPOPortal/blob/master/Screenshots/applicationModerate.jpg)
 
-## Process of deployment on server:
+<a name="deploy"></a>
+## Deploy over the server:
 
 1) Clone this repository with 'git clone <remote_url>'.
 
@@ -51,8 +48,8 @@ CONTENTS OF THIS FILE
 
 6) Start django with runserver (to test) or connect webserver (nginx, uwsgi, gunicorn, ...). 'python manage.py runserver'
 
-
-## Remote installation in your local machine.
+<a name="local"></a>
+## Installation on the local machine:
 
 1) Download and Install Python required version on your OS.
 
