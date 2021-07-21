@@ -11,7 +11,7 @@ CONTENTS OF THIS FILE
 <a name="Introduction"></a>
 ## Introduction
 
-* Developed a fully-functional Training and Placement Portal having an Training and Placment Officer and a student section.
+* Developed a fully-functional Training and Placement Portal having an training and placement officer(TPO) and a student section.
 * TPO controls all the activities in the portal.
 * TPO can add new openings, and moderate application of students.
 * Students can fill the application and see the status of their applications whether it is Rejected, Accepted or Under Review.
